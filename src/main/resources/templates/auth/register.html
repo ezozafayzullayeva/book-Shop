@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<!--<div class="center">-->
+<!--  <form th:action="@{/auth/register}" method="post">-->
+<!--    <input name="username" type="text" placeholder="Name" >-->
+<!--    <input name="password" type="text" placeholder="PhoneNumber" >-->
+<!--    <input name="email" type="text" placeholder="Your Email" >-->
+<!--    <input name="password" type="password" placeholder="Password" >-->
+<!--    <button type="submit">Register</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .signup-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    width: 90%;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group button {
+    background-color: #4caf50;
+    color: #fff;
+    margin: 10px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+</style>
+<div class="signup-container">
+  <h2 style="display: flex; align-items: center; justify-content: center">Sign Up</h2>
+  <div class="form-group">
+    <form th:action="@{/auth/register}" method="post">
+    <label for="username">Username:</label>
+    <input name="name" type="text" id="username" placeholder="Enter your username">
+
+      <label for="phone_number">Phone Number:</label>
+      <input name="phoneNumber" type="text" id="phone_number" placeholder="Enter your Phone Number">
+
+    <label for="email">Email:</label>
+      <input name="email" type="text" id="email" placeholder="Your Email" >
+
+    <label for="password">Password:</label>
+    <input name="password" type="password" id="password" placeholder="Enter your password">
+
+<!--    <label for="confirm-password">Confirm Password:</label>-->
+<!--    <input type="password" id="confirm-password" placeholder="Confirm your password">-->
+    <button type="submit" onclick="signUp()">Register</button>
+    </form>
+  </div>
+  </form>
+</div>
+
+<script>
+  function signUp() {
+    var username = document.getElementById('username').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirm-password').value;
+
+    // Perform sign-up logic here
+    console.log('Signing up with username:', username, 'email:', email, 'password:', password);
+
+    // Example AJAX request using Fetch API
+    // fetch('/api/signup', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({ username: username, email: email, password: password })
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log('Sign Up response:', data);
+    //     // Handle the sign-up response
+    // })
+    // .catch(error => {
+    //     console.error('Error during sign-up:', error);
+    // });
+  }
+</script>
+
+</body>
+</html>

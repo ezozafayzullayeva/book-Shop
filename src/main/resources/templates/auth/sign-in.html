@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-in</title>
+    <!--    <link th:href="@{/css/style.css}" rel="stylesheet">-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .signin-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 90%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            background-color: #4caf50;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .check_box{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="signin-container">
+    <h2 style="display: flex; align-items: center; justify-content: center">Sign In</h2>
+    <div class="form-group">
+        <form th:action="@{/auth/sign-in/post}" method="post">
+            <label for="username" style="margin: 5px">Username:</label>
+            <input name="username" type="text" id="username" placeholder="Enter your username" >
+
+        <label for="password" style="margin: 5px">Password:</label>
+        <input name="password" type="password" id="password" placeholder="Enter your Password" >
+
+        <label class="check_box">
+            <p>Remember me:</p>
+            <input class="remember_checkbox" type="checkbox" name="rem">
+        </label>
+        <button type="submit">Sign In</button>
+        <button th:action="@{/auth/register}" type="submit"><a href="/register">Register</a></button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+

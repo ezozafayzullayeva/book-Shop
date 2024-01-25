@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .root{
+        width: 100%;
+        margin: 0px 35px;
+    }
+    .container{
+        display: inline-block;
+    }
+    .left-add-book{
+        width: 59%;
+        display: inline-block;
+    }
+    .left-add-book p{
+        color: #1E1E1E;
+        font: 28px montserrat sans-serif;
+        margin: 10px 5px 16px 5px;
+    }
+    .right-your-order-book{
+        width: 39%;
+        background-color: darkgrey;
+        display: inline-block;
+    }
+</style>
+<body>
+<div style="width: 100%" class="root">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{auth/register}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/books/add-book}">Add book</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="left-add-book">
+            <p>Savatcha</p>
+            <div class="card mb-3" style="max-width: 540px; background-color: #F6F6F6">
+                <div class="row g-0">
+                    <div class="col-md-4">
+<!--                        <a href="/">-->
+<!--                            <img src="https://img.icons8.com/?size=64&id=XKFHfgAsrGtk&format=gif" alt="Ваша иконка" width="24"-->
+<!--                                 height="24">-->
+<!--                        </a>-->
+                    </div>
+                    <div class="col-md-8">
+<!--                        <div th:each="book: ${books}" class="card-body">-->
+<!--                            <h5 th:text="${book.name}" class="card-title">Book name</h5>-->
+<!--                            <p th:text="${book.author}" class="card-text">Book author</p>-->
+<!--                            <p th:text="${book.price}" class="card-text"><small class="text-muted"> Book price</small></p>-->
+<!--                            <div style="margin: 10px">-->
+<!--                                <button id="increment">+</button>-->
+<!--                                <span id="number">0</span>-->
+<!--                                <button id="decrement">-</button>-->
+<!--                            </div>-->
+
+<!--                            <form th:action="@{/books/{bookId}(bookId=${book.id})}" th:method="delete">-->
+<!--                                <button type="submit" class="btn btn-danger">Delete</button>-->
+<!--                                &lt;!&ndash;                    <button type="submit" class="btn btn-danger"   onclick="if (!(confirm('Are you sure you want to delete this book?'))) return false">Delete</button>&ndash;&gt;-->
+<!--                            </form>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-your-order-book">
+            <div style="font: 18px inter sans-serif; color: #000000; margin: 0 0  16px">Sizning buyurtmangiz</div>
+            <div>Kitoblar:   <p th:value="${book.price}"></p></div>
+
+        </div>
+</div>
+</div>
+
+
+</body>
+<script>
+    document.getElementById('increment').addEventListener('click', function () {
+        var numberElement = document.getElementById('number');
+        var currentNumber = parseInt(numberElement.textContent);
+        numberElement.textContent = currentNumber + 1;
+    });
+
+    document.getElementById('decrement').addEventListener('click', function () {
+        var numberElement = document.getElementById('number');
+        var currentNumber = parseInt(numberElement.textContent);
+        if (currentNumber > 0) {
+            numberElement.textContent = currentNumber - 1;
+        }
+    });
+
+</script>
+</html>

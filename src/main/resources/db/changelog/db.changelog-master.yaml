@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: /21.12.2023-create-books/21.12-create-book-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: /19.12.2023-create-users/19.12_create-user-table.yaml
+      relativeToChangelogFile: true
